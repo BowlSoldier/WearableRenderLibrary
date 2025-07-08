@@ -6,7 +6,11 @@ namespace WearableRenderLibrary
     {
         public override void Start(ICoreAPI api)
         {
-            api.RegisterItemClass("ItemWearableArmorMeshByAttributes", typeof(ItemWearableArmorShapeTexturesByAttributes));
+            api.RegisterItemClass("ItemWearableShapeTexturesByAttributes", typeof(ItemWearableShapeTexturesByAttributes));
+            if (api.ModLoader.IsModEnabled("overhaullib"))
+            {
+                api.RegisterItemClass("ItemWearableArmorShapeTexturesByAttributes", typeof(ItemWearableArmorShapeTexturesByAttributes));
+            }
         }
     }
 }

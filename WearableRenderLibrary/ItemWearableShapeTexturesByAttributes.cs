@@ -1,5 +1,4 @@
-﻿using CombatOverhaul.Armor;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ using Vintagestory.GameContent;
 
 namespace WearableRenderLibrary
 {
-    public class ItemWearableArmorShapeTexturesByAttributes : ItemWearableArmor, IContainedMeshSource, IAttachableToEntity, IWearableShapeSupplier
+    public class ItemWearableShapeTexturesByAttributes : ItemWearable, IContainedMeshSource, IAttachableToEntity, IWearableShapeSupplier
     {
         bool attachableToEntity;
         ICoreClientAPI _capi;
