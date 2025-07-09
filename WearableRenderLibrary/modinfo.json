@@ -6,8 +6,5 @@
     "BowlSoldier"
   ],
   "description": "Modder utility. Classes for Wearable items which can render their shapes and textures dynamically using Attributes.",
-  "version": "1.1.0",
-  "dependencies": {
-    "overhaullib": "*"
-  }
+  "version": "1.2.0"
 }

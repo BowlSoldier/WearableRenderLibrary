@@ -1,4 +1,7 @@
-﻿using Vintagestory.API.Common;
+﻿using System;
+using System.Reflection;
+using Vintagestory.API.Common;
+using Vintagestory.Common;
 
 namespace WearableRenderLibrary
 {
@@ -9,7 +12,19 @@ namespace WearableRenderLibrary
             api.RegisterItemClass("ItemWearableShapeTexturesByAttributes", typeof(ItemWearableShapeTexturesByAttributes));
             if (api.ModLoader.IsModEnabled("overhaullib"))
             {
-                api.RegisterItemClass("ItemWearableArmorShapeTexturesByAttributes", typeof(ItemWearableArmorShapeTexturesByAttributes));
+                Assembly overhaullibCompatability = Assembly.LoadFile($"{((ModContainer)this.Mod).FolderPath}/native/OverhaulLibCompat.dll");
+                if (overhaullibCompatability == null)
+                {
+                    api.Logger.Error("Could not load OverhaulLibCompat.dll");
+                    return;
+                }
+                Type armorClassType = overhaullibCompatability.GetType("WearableRenderLibrary.OverhaulLibCompat.ItemWearableArmorShapeTexturesByAttributes");
+                if (armorClassType == null)
+                {
+                    api.Logger.Error("Could not find ItemWearableArmorShapeTexturesByAttributes type in OverhaulLibCompat.dll");
+                    return;
+                }
+                api.RegisterItemClass("ItemWearableArmorShapeTexturesByAttributes", armorClassType);
             }
         }
     }

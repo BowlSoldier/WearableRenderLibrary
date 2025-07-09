@@ -13,7 +13,7 @@ using Vintagestory.GameContent;
 
 #nullable disable
 
-namespace WearableRenderLibrary
+namespace WearableRenderLibrary.OverhaulLibCompat
 {
     public class ItemWearableArmorShapeTexturesByAttributes : ItemWearableArmor, IContainedMeshSource, IAttachableToEntity, IWearableShapeSupplier
     {
